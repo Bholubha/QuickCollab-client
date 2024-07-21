@@ -1,0 +1,351 @@
+:root {
+    --grid-spacing: 1vw;
+    --dot-size: 0.04vw;
+    --dot-color: rgb(158, 158, 158);
+  }
+
+  /* 
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .home {
+    flex: 1; 
+    position: relative;
+    background-image: 
+      radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size)),
+      radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size));
+    background-size: var(--grid-spacing) var(--grid-spacing);
+    background-position: 0 0, var(--grid-spacing) var(--grid-spacing);
+    transition: transform 0.2s, background-size 0.2s, background-position 0.2s;
+    transform-origin: center; 
+    overflow: hidden; 
+  }
+  
+  .navbar {
+    height: 7vh;
+    width: 100%;
+    border-bottom: 0.4vh solid rgb(125, 125, 125);
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  
+
+  .canvas{
+    border: 1px solid black;
+    width: 500px;  
+    height: 500px; 
+  } */
+
+  /* New style for  */
+
+  @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+  
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('./ExtraBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+  
+ 
+  .container {
+    width: 100%;
+  }
+
+  .logo{
+    z-index: 2;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 1vw;
+    font-family: 'CustomFont', sans-serif;
+    font-size: 5vh;
+    font-weight: 900;
+    color: #ef8354;
+  }
+
+  .logo span{
+    color: #4f5d75;
+  }
+  
+  .toolSelector {
+    margin: 0 34vw;
+    height: 6vh;
+    width: 32vw;
+    background-color: rgb(255, 255, 255);
+    border: 0.3vh solid #ef8354;
+    border-radius: 1vh;
+    z-index: 2;
+    position: fixed;
+    top: 1vh;
+    display: flex;
+    justify-content: center;
+    gap: 1.5vw;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  .radioHidden {
+    display: none;
+  }
+  
+  .radioLabel {
+  
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .radioLabel img {
+   
+    width: auto; 
+    height: 2.4vh; 
+    opacity: 0.7;
+    padding: 1vh 0.9vw;
+    transition: opacity 0.3s;
+    display: block;
+    border-radius: 1vh;
+    border: 0.1vh solid #ef8354;
+  }
+  
+  .radioHidden:checked + .radioLabel img {
+    
+    opacity: 1.2;
+   
+    background-color: #ef8354;
+    
+    
+  }
+/* hummeberg menu */
+
+.hummeburg{
+  position: fixed;
+  top: 1vw;
+  right: 2vw;
+  width: 1.7vw;
+  height: 1.7vw;
+  background-color: #ffb392;
+  border-radius: 0.3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  z-index: 2;
+}
+
+.hummeburg img{
+  width: 0.8vw;
+  height: auto;
+  display: block;
+}
+
+.hummeburg:hover{
+  background-color: #ffc6ae;
+  cursor: pointer;
+}
+
+  /* custome Bar */
+  .customeBar{
+    font-family: 'Muli', sans-serif;
+    font-size: 0.9vw;
+    font-weight: 800;
+    height: 40vh;
+    width: 13vw;
+    background-color: rgb(255, 255, 255);
+    border: 0.3vh solid #ef8354;
+    border-radius: 1vh;
+    z-index: 2;
+    position: fixed;
+    top: 4vw;
+    right: 1vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+
+
+ 
+ .color{
+  width: 10vw;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2vw;
+  justify-content:center;
+  align-items: center;
+ }
+
+ .custom{
+  position: absolute;
+  left: 0;
+  width: 100px;
+  bottom: 2.2vw; 
+}
+  
+  .colorLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .colorInput {
+    display: none;
+  }
+  
+  .colorBox {
+     
+    width: 1.3vw;
+    height: 1.3vw;
+    border: 2.5px solid transparent;
+    border-radius: 4px;
+    padding: 0.1vw;
+   
+    transition: border-color 0.3s;
+  }
+  
+  .colorBoxInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px; 
+  }
+
+
+  .colorInput:checked + .colorBox {
+    border-color: #000000;
+  }
+
+
+  .strokeWidth {
+    width: 10vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .widthLabel{
+    align-items: center;
+    margin-bottom: 0.5vw;
+    margin-left: 0;
+  }
+  
+  .slider {
+    width: 10vw;
+    padding: 0;
+    margin-left:0;
+    margin-right: 0;
+  }
+  
+  .fillColor{
+  width: 10vw;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2vw;
+  justify-content:center;
+  align-items: center;
+  }
+
+  .fillStyle{
+    width: 10vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    justify-content:center;
+    align-items: center;
+    
+  }
+
+  
+
+  .fillOptionBox{
+    height: 1.7vw;
+    border: 2.5px solid transparent;
+    border-radius: 4px;
+    padding: 0;
+    
+    padding: 0.1vw;
+    transition: border-color 0.3s;
+  }
+
+
+  .fillOptionBoxInner img{
+    height: 1.7vw;
+    width: 1.7vw;
+  }
+
+  .colorInput:checked + .fillOptionBox {
+    border-color: #000000;
+  }
+  /* Bottom selection tools */
+
+  .bottomBar{
+    background-color: #ef8354;
+    border: 0.3vh solid #ef8354;
+    border-radius: 1vh;
+    font-family: 'Muli', sans-serif;
+    font-weight: 900;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 1vh;
+    height: 5vh;
+    width: 21vw;
+    margin: 0 1vw;
+    gap: 0.4vw;
+  }
+
+  .bottomBar img{
+    height: 2.3vh;
+    width: auto;
+    display: block;
+  }
+
+  .bottomBar button{
+    background-color: #f7a27e;
+    padding: 1vh 1vw;
+    border-radius: 1vh;
+    border: none;
+  }
+
+  .bottomBar button:hover{
+    cursor: pointer;
+    background-color: #ffcdb7;
+  }
+
+  /* CSS for print */
+
+  
+@media print {
+  .bottomBar{
+    display: none;
+  }
+  .toolSelector{
+    display: none;
+  }
+}

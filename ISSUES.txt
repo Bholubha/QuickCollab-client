@@ -1,0 +1,5 @@
+Date: 20 July
+=> use socket into the upper-level component(because when we use navigate then lower-level component don't correctly run socket connection code)
+=> remove react strict mode because it cause twice rendering of useEffect
+=> useEffect don't have any idea about all state it might only know which present in the dependency array.
+=> ISSUe - when one client edit the canvas so elements changes and I wrote socket.emit inside useLayoutEffect which have dependency "elements" as well as "otherElements" so when one client send element, other receive it and set otherElements, so due to this uselayoutEffect triggered and inside this again socket.emit run and it send to first client which send firstly then again first send to second and then second send to first .... Infinite loop so for this don't use socket.emit inside useLayoutEffect instead I create new useEffect with dependency as elements and inside this I use socket.emit() - solved issue.
