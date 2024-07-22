@@ -6,9 +6,9 @@ import Slide from './components/Slide';
 
 
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:5000');
+const socket = socketIO.connect('https://quickcollab-backend-production.up.railway.app');
 // https://quickcollab-backend-production.up.railway.app
-
+// http://localhost:5000
 const App = () => {
   const  [clientId, setClientId] = useState(null)
   const [userName, setUserName] = useState("Unknown")
