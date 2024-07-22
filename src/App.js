@@ -6,7 +6,7 @@ import Slide from './components/Slide';
 import Konva from './components/Konva';
 import Temp from './components/Temp';
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('quickcollab-backend-production.up.railway.app');
+const socket = socketIO.connect('https://quickcollab-backend-production.up.railway.app');
 
 const App = () => {
   const  [clientId, setClientId] = useState(null)
