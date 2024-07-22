@@ -165,7 +165,7 @@
     font-family: 'Muli', sans-serif;
     font-size: 0.9vw;
     font-weight: 800;
-    height: 40vh;
+    height: 18vw;
     width: 13vw;
     background-color: rgb(255, 255, 255);
     border: 0.3vh solid #ef8354;
@@ -348,4 +348,65 @@
   .toolSelector{
     display: none;
   }
+}
+
+/* Member ARea */
+
+.Members {
+  font-family: 'Muli', sans-serif;
+  font-size: 0.9vw;
+  font-weight: 800;
+  height: 15vw;
+  width: 11vw;
+  background-color: rgb(255, 255, 255);
+  border: 0.3vh solid #ef8354;
+  border-radius: 1vh;
+  z-index: 2;
+  position: fixed;
+  bottom: 4vw;
+  right: 1vw;
+  display: flex;
+  justify-content: flex-start; 
+  flex-direction: column;
+  padding: 1vw;
+  gap: 0.5vw;
+  align-items: flex-start;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  max-height: 18vw;
+  display: none;
+}
+
+.member{
+  width: 90%;
+  padding: 0.5vw;
+  background-color: #ffcdb7;
+  border-radius: 0.5vw;
+}
+
+
+.memberIcon{
+    position: fixed;
+    bottom: 1vw;
+    right: 2vw;
+    width: 2vw;
+    height: 2vw;
+    background-color: #ffb392;
+    border-radius: 0.3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    z-index: 2;    
+}
+
+.memberIcon:hover{
+  background-color: #ffc6ae;
+  cursor: pointer;
+}
+
+.memberIcon img{
+  width: 1vw;
+  height: auto;
+  display: block;
 }

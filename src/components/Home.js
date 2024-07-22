@@ -370,7 +370,7 @@ const usePressedKeys = () => {
   return pressedKeys;
 };
 
-const Home = ({ socket, clientId }) => {
+const Home = ({ socket, clientId ,userName}) => {
   const [elements, setElements, undo, redo, clearCanvas] = useHistory([]);
   const [action, setAction] = useState("none");
   const [tool, setTool] = useState("text");
@@ -393,12 +393,27 @@ const Home = ({ socket, clientId }) => {
   const [fillColor, setFillColor] = useState("black")
   const [fillOption, setFillOption] = useState("empty")
 
+  const [members, setMembers] = useState(new Set());
+
+  const addMember = (newMember) => {
+    setMembers((prevMembers) => {
+      const updatedMembers = new Set(prevMembers);
+      updatedMembers.add(newMember);
+      return updatedMembers;
+    });
+  };
+
+  console.log(members)
+
   useEffect(() => {
     socket.on("getCollab", (data) => {
-      const { id, CODE, foreignElements } = data;
-     
+      const { id, CODE, foreignElements,memberName } = data;
+      console.log(memberName)
+      addMember(memberName)
+      
       if (!clientId) clientId = localStorage.getItem("clientId");
       if (id !== clientId && clientId !== null && code === CODE) {
+        
         setOtherElements((prevState) => ({
           ...prevState,
           [id]: foreignElements,
@@ -461,12 +476,14 @@ const Home = ({ socket, clientId }) => {
   }, [elements, action, selectedElement, panOffset, scale, otherElements]);
 
   useEffect(() => {
+    if(userName==="unknown") userName = localStorage.getItem("userName");
     socket.emit("sendCollab", {
       id: clientId,
       CODE: code,
       foreignElements: elements,
+      memberName:userName
     });
-  }, [elements]);
+  }, [elements,userName]);
 
   // function for updating element depend upon type
   const updateElement = (id, x1, y1, x2, y2, type, textOptions = null,options) => {
@@ -821,6 +838,12 @@ const Home = ({ socket, clientId }) => {
    }
  }
 
+ const handleShowMember =()=>{
+  const members = document.getElementById("members");
+  const currDisplay = members.style.display;
+  members.style.display = currDisplay==="flex"?"none":"flex";
+ }
+
   return (
     <div className={style.container}>
       <div className={style.logo}>
@@ -1016,6 +1039,18 @@ const Home = ({ socket, clientId }) => {
         <button onClick={clearFullCanvas}>
           <img src="../binclose.png" alt="" />
         </button>
+      </div>
+
+      <div className={style.memberIcon} onClick={handleShowMember}>
+      
+       <img id="" src="../peoples.png" alt="" />
+  
+      </div>
+
+      <div className={style.Members} id="members">
+      {[...members].map((member, index) => (
+        <div key={index} className={style.member}>{member}</div>
+      ))}
       </div>
 
       {action === "writing" ? (

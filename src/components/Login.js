@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import style from "./CSS/login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUserName}) => {
   const navigate = useNavigate();
   const nameRefCreate = useRef(null);
   const roomCodeRefCreate = useRef(null);
@@ -25,7 +25,8 @@ const Login = () => {
   const CreatRoom = () => {
     const name = nameRefCreate.current.value.trim();
     const roomCode = roomCodeRefCreate.current.value.trim();
-
+    setUserName(name)
+    localStorage.setItem('userName', name);
     if (name && /^[0-9]+$/.test(roomCode)) {
       navigate(`/home/${roomCode}`);
     } else {
@@ -36,7 +37,8 @@ const Login = () => {
   const JoinRoom = () => {
     const name = nameRefJoin.current.value.trim();
     const roomCode = roomCodeRefJoin.current.value.trim();
-
+    setUserName(name)
+    localStorage.setItem('userName', name);
     if (name && /^[0-9]+$/.test(roomCode)) {
       navigate(`/home/${roomCode}`);
     } else {
