@@ -86,8 +86,8 @@
   
   .toolSelector {
     margin: 0 34vw;
-    height: 6vh;
-    width: 32vw;
+    height: 40px;
+    width: 430px;
     background-color: rgb(255, 255, 255);
     border: 0.3vh solid #ef8354;
     border-radius: 1vh;
@@ -96,7 +96,7 @@
     top: 1vh;
     display: flex;
     justify-content: center;
-    gap: 1.5vw;
+    gap: 15px;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     
@@ -115,9 +115,9 @@
   .radioLabel img {
    
     width: auto; 
-    height: 2.4vh; 
+    height: 15px; 
     opacity: 0.7;
-    padding: 1vh 0.9vw;
+    padding: 7px 14px;
     transition: opacity 0.3s;
     display: block;
     border-radius: 1vh;
@@ -137,7 +137,7 @@
 .hummeburg{
   position: fixed;
   top: 1vw;
-  right: 2vw;
+  right: 1vw;
   width: 1.7vw;
   height: 1.7vw;
   background-color: #ffb392;
@@ -166,7 +166,8 @@
     font-size: 0.9vw;
     font-weight: 800;
     height: 18vw;
-    width: 13vw;
+    width: 11vw;
+    padding: 0 1vw;
     background-color: rgb(255, 255, 255);
     border: 0.3vh solid #ef8354;
     border-radius: 1vh;
@@ -300,6 +301,7 @@
   .colorInput:checked + .fillOptionBox {
     border-color: #000000;
   }
+
   /* Bottom selection tools */
 
   .bottomBar{
@@ -314,21 +316,21 @@
     justify-content: center;
     align-items: center;
     bottom: 1vh;
-    height: 5vh;
-    width: 21vw;
+    height: 35px;
+    width: 330px;
     margin: 0 1vw;
-    gap: 0.4vw;
+    gap: 5px;
   }
 
   .bottomBar img{
-    height: 2.3vh;
-    width: auto;
+    width : 15px;
+    height: auto;
     display: block;
   }
 
   .bottomBar button{
     background-color: #f7a27e;
-    padding: 1vh 1vw;
+    padding: 0.5vw 1vw;
     border-radius: 1vh;
     border: none;
   }
@@ -388,7 +390,7 @@
 .memberIcon{
     position: fixed;
     bottom: 1vw;
-    right: 2vw;
+    right: 1vw;
     width: 2vw;
     height: 2vw;
     background-color: #ffb392;
