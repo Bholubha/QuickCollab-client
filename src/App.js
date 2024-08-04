@@ -34,7 +34,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login setUserName={setUserName}/>} />
+        <Route path="/" element={<Login setUserName={setUserName} socket={socket}/>} />
         <Route path="/slide/:code" element={<Slide/>} />
         <Route path="/home/:code" element = {<Home socket={socket} clientId={clientId} userName={userName}/>}/>
       </Routes>

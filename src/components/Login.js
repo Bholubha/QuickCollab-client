@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import style from "./CSS/login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({setUserName}) => {
+const Login = ({setUserName,socket}) => {
   const navigate = useNavigate();
   const nameRefCreate = useRef(null);
   const roomCodeRefCreate = useRef(null);
@@ -28,6 +28,12 @@ const Login = ({setUserName}) => {
     setUserName(name)
     localStorage.setItem('userName', name);
     if (name && /^[0-9]+$/.test(roomCode)) {
+      
+      socket.emit("register",{
+        roomCode : roomCode,
+        userId : socket.id
+      });
+
       navigate(`/home/${roomCode}`);
     } else {
       alert("Please enter a valid name and room number.");
@@ -40,6 +46,7 @@ const Login = ({setUserName}) => {
     setUserName(name)
     localStorage.setItem('userName', name);
     if (name && /^[0-9]+$/.test(roomCode)) {
+
       navigate(`/home/${roomCode}`);
     } else {
       alert("Please enter a valid name and room number.");

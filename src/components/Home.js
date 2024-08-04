@@ -408,17 +408,17 @@ const Home = ({ socket, clientId ,userName}) => {
   useEffect(() => {
     socket.on("getCollab", (data) => {
       const { id, CODE, foreignElements,memberName } = data;
-      // console.log(memberName)
+     
       addMember(memberName)
       
       if (!clientId) clientId = localStorage.getItem("clientId");
-      if (id !== clientId && clientId !== null && code === CODE) {
+     
         
         setOtherElements((prevState) => ({
           ...prevState,
           [id]: foreignElements,
         }));
-      }
+      
     });
   }, []);
 
