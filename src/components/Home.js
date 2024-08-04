@@ -403,12 +403,12 @@ const Home = ({ socket, clientId ,userName}) => {
     });
   };
 
-  console.log(members)
+  // console.log(members)
 
   useEffect(() => {
     socket.on("getCollab", (data) => {
       const { id, CODE, foreignElements,memberName } = data;
-      console.log(memberName)
+      // console.log(memberName)
       addMember(memberName)
       
       if (!clientId) clientId = localStorage.getItem("clientId");
@@ -742,7 +742,7 @@ const Home = ({ socket, clientId ,userName}) => {
         position,
         coordinates
       );
-      console.log(options)
+      // console.log(options)
       updateElement(id, x1, y1, x2, y2, type,null,options);
     }
   };
