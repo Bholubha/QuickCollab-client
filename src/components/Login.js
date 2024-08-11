@@ -46,7 +46,10 @@ const Login = ({setUserName,socket}) => {
     setUserName(name)
     localStorage.setItem('userName', name);
     if (name && /^[0-9]+$/.test(roomCode)) {
-
+      socket.emit("register",{
+        roomCode : roomCode,
+        userId : socket.id
+      });
       navigate(`/home/${roomCode}`);
     } else {
       alert("Please enter a valid name and room number.");
