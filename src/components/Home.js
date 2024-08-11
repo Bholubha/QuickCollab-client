@@ -46,7 +46,7 @@ const Home = ({ socket, clientId ,userName}) => {
   const [fillColor, setFillColor] = useState("black")
   const [fillOption, setFillOption] = useState("empty")
 
-  const [members, setMembers] = useState(new Set());
+  const [members, setMembers] = useState(new Set([userName]));
 
   const addMember = (newMember) => {
     setMembers((prevMembers) => {
@@ -55,7 +55,8 @@ const Home = ({ socket, clientId ,userName}) => {
       return updatedMembers;
     });
   };
-
+  
+ 
   // console.log(members)
 
   useEffect(() => {
