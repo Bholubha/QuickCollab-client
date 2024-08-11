@@ -2,7 +2,6 @@ import {React,useState,useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Slide from './components/Slide';
 
 
 import socketIO from 'socket.io-client';
@@ -35,7 +34,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Login setUserName={setUserName} socket={socket}/>} />
-        <Route path="/slide/:code" element={<Slide/>} />
+        
         <Route path="/home/:code" element = {<Home socket={socket} clientId={clientId} userName={userName}/>}/>
       </Routes>
     </Router>
