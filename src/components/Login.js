@@ -57,6 +57,7 @@ const Login = ({setUserName,socket}) => {
   };
 
   return (
+    <>
     <div className={style.background}>
       <div className={style.header}>
         Quick <span>Collab</span>
@@ -148,6 +149,10 @@ const Login = ({setUserName,socket}) => {
         </div>
       </div>
     </div>
+    <div className={style.portrait}>
+      Please Open This site in Landscape Device !!
+    </div>
+    </>
   );
 };
 

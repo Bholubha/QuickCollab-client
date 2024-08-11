@@ -206,4 +206,27 @@ span{
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); 
   }
 
- 
+  .portrait{
+    display: none;
+  }
+
+@media screen and (orientation: portrait) {
+   
+   
+    .background{
+        height: 0vh;
+        display: none;
+    }
+   
+    .portrait{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background-color: #ef8354;
+        color: white;
+        font-family: 'Muli', sans-serif;
+        
+    }
+}
+
