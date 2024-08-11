@@ -226,7 +226,8 @@ span{
         background-color: #ef8354;
         color: white;
         font-family: 'Muli', sans-serif;
-        
+        font-weight: 700;
+        font-size: large;
     }
 }
 
