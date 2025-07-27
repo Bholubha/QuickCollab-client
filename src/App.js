@@ -5,7 +5,8 @@ import Login from './components/Login';
 
 
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('https://quickcollab-backend-production.up.railway.app');
+const socket = socketIO.connect(process.env.REACT_APP_API_URL);
+console.log(process.env.REACT_APP_API_URL)
 // https://quickcollab-backend-production.up.railway.app
 // http://localhost:5000
 const App = () => {
